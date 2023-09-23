@@ -22,7 +22,7 @@ public class PaymentServiceImpl implements PaymentService {
     public Payment pay(Integer reservationId, int amountSent, String mode) throws Exception {
         Optional<Reservation> reservationOptional = reservationRepository2.findById(reservationId);
         Reservation reservation = reservationOptional.get();
-        int amountDue = reservation.getNumberOfHour() * reservation.getSpot().getPricePerHour();
+        int amountDue = reservation.getNumberOfHours() * reservation.getSpot().getPricePerHour();
         if(amountSent < amountDue){
             return null;
         }

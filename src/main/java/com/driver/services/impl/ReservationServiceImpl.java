@@ -62,12 +62,14 @@ public class ReservationServiceImpl implements ReservationService {
             }
         }
         if(minCost != 0){
+            if(minspot.getOccupied() == true){
+                throw new Exception("Cannot make reservation");
+            }
             Reservation reservation = new Reservation();
-            reservation.setNumberOfHour(timeInHours);
+            reservation.setNumberOfHours(timeInHours);
             reservation.setSpot(minspot);
             reservation.setPayment(new Payment());
             reservation.setUser(user);
-
             minspot.setOccupied(true);
 
             List<Reservation> reservationList = minspot.getReservationList();
