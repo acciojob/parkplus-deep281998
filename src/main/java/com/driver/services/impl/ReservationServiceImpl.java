@@ -82,8 +82,8 @@ public class ReservationServiceImpl implements ReservationService {
             userRepository3.save(user);
 
             spotRepository3.save(minspot);
-            reservationRepository3.save(reservation);
-            return reservation;
+            return reservationRepository3.save(reservation);
+
         }
         throw new Exception("Cannot make reservation");
     }
