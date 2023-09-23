@@ -33,7 +33,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour) {
         Optional<ParkingLot> optionalParkingLot = parkingLotRepository1.findById(parkingLotId);
         if(!optionalParkingLot.isPresent()){
-            return null;
+            return new Spot();
         }
         Spot spot = new Spot();
         if(numberOfWheels <= 2){
